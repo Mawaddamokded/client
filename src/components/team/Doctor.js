@@ -6,9 +6,9 @@ function Doctor({ docteur }) {
 
         <div className="team-img">
           
-        <img src={docteur.photo} alt="Team "/>
+        <img src={docteur.photo} href="../../pages/doctorDetails" alt="Team "/>
             <div className="team-info">
-                <h3 className="title"><a href="#docteur">{docteur.nom_doc} {docteur.prenom_doc}</a></h3>
+                <h3 className="title"><a href="../../pages/doctorDetails">{docteur.nom_doc} {docteur.prenom_doc}</a></h3>
                 <p className="post">{docteur.nom_spec}</p>
             </div>
         </div>
@@ -18,7 +18,7 @@ function Doctor({ docteur }) {
       {docteur.description.length > MAX_LENGTH ?
       (
       <div>
-        {`${docteur.description.substring(0, MAX_LENGTH)}...`}<a href="#details">Lire la suite</a>
+        {`${docteur.description.substring(0, MAX_LENGTH)}...`}<a href="../../pages/doctorDetails">Lire la suite</a>
       </div>
       ) :
       <p>{docteur.description}</p>

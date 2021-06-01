@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet';
 
 //Custom Components
 
-import HomePage from '../pages/home';
+import Router from '../pages/Router';
 
 function App() {
     return (
@@ -18,7 +18,7 @@ function App() {
                 />
             </Helmet>
 
-            <HomePage />
+            <Router />
         </div>
     );
 }

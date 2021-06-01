@@ -1,6 +1,6 @@
 import { Container, Row, Col } from 'reactstrap';
-import SectionHeading from '../heading';
-import SingleService from './single';
+import SectionHeading from '../header/SectionHeading';
+import SingleService from './singleService';
 
 import servicesIcon1 from '../../assets/images/services/1.svg';
 import servicesIcon2 from '../../assets/images/services/2.svg';

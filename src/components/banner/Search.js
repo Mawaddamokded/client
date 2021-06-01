@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Container } from "reactstrap";
-import DoctorList from "../team/DoctorList.js";
-class Banner extends Component {
+import DoctorList from "../team/DoctorList"
+ import Axios from "../../pages/Api"; 
+class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,14 +18,11 @@ class Banner extends Component {
     };
     this.handleChangeNom = this.handleChangeNom.bind(this);
     this.handleChangeVille = this.handleChangeVille.bind(this);
+  
     this.handleChangeSpec = this.handleChangeSpec.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.clickHandler = this.clickHandler.bind(this)
-    this.state = {currentPosition: 0, totalLength: 3, val: 'yolo'}
+    this.handleSubmit = this.handleSubmit.bind(this); 
   }
-  clickHandler(){ 
-    this.setState({currentPosition: (this.state.currentPosition + 1)%this.state.totalLength})
-  }
+  
 
   handleChangeNom(event) {
     this.setState({ nom_doc: event.target.value });
@@ -42,39 +40,15 @@ class Banner extends Component {
     let { nom_doc, nom_ville, nom_spec } = this.state;
     const url = `/cabinet/docteur/search?&nom_doc=${nom_doc}&nom_ville=${nom_ville}&nom_spec=${nom_spec}`;
     axios.get(url).then((res) => {
-      // console.log(res);
       this.setState({ docteur: res.data.response });
       console.log(res.data);
     });
   }
   componentDidMount() {
-    axios.get("/cabinet/docteur").then((res) => {
-      console.log(res);
-      this.setState({ docteur: res.data });
-    });
-    axios.get("/cabinet/docteur/spec").then((res) => {
-      console.log(res);
-      this.setState({ specialite: res.data });
-    });
-    axios.get("/cabinet/docteur/ville").then((res) => {
-      console.log(res);
-      this.setState({ ville: res.data });
-    });
+Axios();
   }
 
   render() {
-    
- /*    const { search } = this.state;
-    let searchList =
-      search.length > 0 &&
-      search.map((item, i) => {
-        return (
-          <option key={i} value={item.id}>
-            {item.docteur}
-          </option>
-        );
-      }, this);
- */
     const { specialite } = this.state;
     const { ville } = this.state;
     let specialiteList =
@@ -107,7 +81,6 @@ class Banner extends Component {
               <section id="hero" className="d-flex align-items-center">
                 <div className="container">
                  
-                  {/* <div class="row" style="margin: 100%; "> */}
                   <div className="col">
                     <input
                       type="text"
@@ -147,7 +120,7 @@ class Banner extends Component {
                     <label />
                     <input
                       className="button1"
-                      onClick={() => this.handleSubmit()+clickHandler}
+                      onClick={() => this.handleSubmit()}
                       href="#tcd-team"
                       type="submit"
                     />
@@ -160,11 +133,9 @@ class Banner extends Component {
           </Container>
         </div>
         </div>
-        <DoctorList 
-        docteur={this.state.docteur}
-        />
+        <DoctorList docteur={this.state.docteur} />
       </div>
     );
   }
 }
-export default Banner;
+export default Search;

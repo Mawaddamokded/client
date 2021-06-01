@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "../../assets/styles/Ins.css"
 
-function Inscription() {
+function Form() {
     const [btns, setBtns] = useState([
         {   id:1,
             isclick:true,
@@ -78,4 +78,4 @@ function Inscription() {
     }
 
 
-export default Inscription
+export default Form
