@@ -1,4 +1,4 @@
-import axios from "axios";
+/* import axios from "axios";
 
 
     export default () => axios.get("/cabinet/docteur").then((res) => {
@@ -14,5 +14,5 @@ import axios from "axios";
         this.setState({ ville: res.data });
       });
   
-
+ */
 

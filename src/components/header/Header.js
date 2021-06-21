@@ -34,7 +34,7 @@ function Header() {
 
 									<li><a href="#tcd-team">Team</a></li>
 
-									<li><Link to="/Inscription" >Inscrepition</Link></li>
+									<li><Link to="/Inscription" >Connecter</Link></li>
 
 									<li><a href="#tcd-footer">Contact</a></li>
 								</ul>
@@ -45,17 +45,10 @@ function Header() {
 											alt="Phone Icon"
 										/> 
 									</span>
-									<div className="contact-number">
-										<span>Call Us</span>
-										<span>
-											<a 
-												className="phone" 
-												href="tel:01234567"
-											>
-												+088-123456
-											</a>
-										</span>
-									</div>
+									<Link to={`/inscrit/docteur`} className="contact-number">
+										<span>Espace </span>
+										<span>Docteur</span>
+									</Link>
 								</div>
 							</div>
 						</Col>

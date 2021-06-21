@@ -2,12 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import './assets/styles/style.css';
 import './assets/styles/responsive.css';
 import './assets/styles/Ins.css';
+import './assets/styles/DoctorDetails.css'
 
 ReactDOM.render(
   	<React.StrictMode>

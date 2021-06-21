@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Container } from "reactstrap";
 import DoctorList from "../team/DoctorList"
- import Axios from "../../pages/Api"; 
+/*  import Api from "../../pages/Api";  */
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
       nom_doc: "",
-      prenom_doc: "",
       nom_ville: "",
       nom_spec: "",
       docteur: [],
@@ -16,9 +15,9 @@ class Search extends Component {
       ville: [],
       
     };
+    
     this.handleChangeNom = this.handleChangeNom.bind(this);
     this.handleChangeVille = this.handleChangeVille.bind(this);
-  
     this.handleChangeSpec = this.handleChangeSpec.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this); 
   }
@@ -45,7 +44,19 @@ class Search extends Component {
     });
   }
   componentDidMount() {
-Axios();
+
+    axios.get("/cabinet/docteur").then((res) => {
+      console.log(res);
+      this.setState({ docteur: res.data });
+    });
+    axios.get("/cabinet/docteur/spec").then((res) => {
+      console.log(res);
+      this.setState({ specialite: res.data });
+    });
+    axios.get("/cabinet/docteur/ville").then((res) => {
+      console.log(res);
+      this.setState({ ville: res.data });
+    });
   }
 
   render() {
@@ -94,7 +105,7 @@ Axios();
                   <div className="col">
                     <select
                       name="Spécialité"
-                      value={this.state.value1}
+                      value={this.state.value}
                       onChange={this.handleChangeSpec}
                       id="arround"
                       className="form-control"
@@ -107,7 +118,7 @@ Axios();
                     <select
                       name="Ville"
                       id="arround"
-                      value={this.state.value2}
+                      value={this.state.value}
                       onChange={this.handleChangeVille}
                       className="form-control"
                     >
@@ -121,7 +132,7 @@ Axios();
                     <input
                       className="button1"
                       onClick={() => this.handleSubmit()}
-                      href="#tcd-team"
+                      
                       type="submit"
                     />
                     <br />
